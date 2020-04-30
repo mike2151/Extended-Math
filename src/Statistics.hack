@@ -1,7 +1,8 @@
 namespace ExtendedMath\Statistics;
 
 use function HH\Lib\C\count;
-use function HH\Lib\Math\{mean, sqrt};
+use function HH\Lib\Math\mean;
+use function HH\Lib\Math\sqrt;
 use function HH\invariant;
 
 // computes the standard deviation of a vec
@@ -10,10 +11,11 @@ function std_dev(vec<num> $v, bool $is_sample = false): float {
   $count = count($v);
   invariant($count !== 0, "The input has 0 elements");
   invariant($count !== 1, "The input has 1 element");
-  $mean = mean($v);
+  $mean = (float)mean($v);
   $carry = 0.0;
   foreach ($v as $val) {
-    $d = ((float)$val) - $mean;
+    $float_val = (float)$val;
+    $d = $float_val - $mean;
     $carry += $d * $d;
   }
   ;
