@@ -1,8 +1,7 @@
 namespace ExtendedMath\Statistics;
 
 use function HH\Lib\C\count;
-use function HH\Lib\Math\mean;
-use function HH\Lib\Math\sqrt;
+use function HH\Lib\Math\{mean, sqrt};
 use function HH\invariant;
 
 // computes the standard deviation of a vec
